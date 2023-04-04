@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <math.h>
 
-int main() {
+int main(){
     int i, j, k = 0, r = 0;
     char str[256];
     FILE *fp = fopen("C:/Users/mihan/OneDrive/Рабочий стол/Flita2/matrix_of_incendence188.txt", "r");
@@ -34,6 +34,15 @@ int main() {
     fo = fopen("g.dot","wt");
     fprintf( fo, "digraph Graf {\n");
     fprintf( fo, "  edge [dir=\"both\"] \n");
+    for(i = 0; i < k; i++){
+        int sum = 0;
+        for(j = 0; j < strlen(str)/2 + strlen(str)%2; j++){
+            sum+=matrix_inc[i][j];
+        }
+        if(sum==0){
+            fprintf( fo, " A%d\n", i+1);
+        }
+    }
     int x1, x2;
     for(j = 0; j < strlen(str)/2 + strlen(str)%2; j++){
         if(m[j][k] == 2){
